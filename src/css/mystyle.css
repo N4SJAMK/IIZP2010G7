@@ -2,9 +2,29 @@ body {
     background-color: lightblue !important;
 }
 h1 {
-    color: navy !important;
-    margin-left: 20px !important;
+    color: white ;
+    margin-left: 20px ;
 }
 p {
-	margin-left: 20px !important;
+	margin-left: 20px ;
+}
+#navtop {
+	background-color:#303030;
+	box-shadow: 2px 5px 10px #888888;
+	margin-bottom:-10px !important;
+	height:40px !important;
+
+}
+#container {
+
+	margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
+	max-width:81%;
+    
+	height:2000px;
+	margin-top:-20px;
+	padding-top:100px;
+	
+
 }
