@@ -23,7 +23,7 @@ function insert($collection,$email,$password) {
 }
 
 function update($collection,$emailOld,$passwordOld,$emailNew,$passwordNew) {
-  $result = find(array('email' => "$emailOld"));
+  $result = collection->find(array('email' => "$emailOld"));
   foreach ($result as $document) {
     $id = $document['_id'];
   }
