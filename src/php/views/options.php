@@ -1,4 +1,6 @@
 <?php include '../header.php';?>
+<?php include '../../../mongo/db-init.php';?>
+<?php include '../../../mongo/functions.php';?>
 <div data-role="page" data-theme="b">
 <body>
 

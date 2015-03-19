@@ -46,4 +46,8 @@ function update($collection,$emailOld,$emailNew,$passwordNew) {
   );
 }
 
+function deleteUser($collection,$email) {
+  echo "hoho";
+}
+
 ?>

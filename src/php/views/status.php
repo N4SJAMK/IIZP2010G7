@@ -23,17 +23,6 @@
 <?php
 echo "<p>I Am Now A Mobile Developer!!</p>";
 
-$kayttajat = findAll($collection);
-
-foreach ($kayttajat as $document) {
-  $email = $document['email'];
-  echo "Email: $email<br>";
-  $id = $document['_id'];
-  echo "ID: $id<br>";
-  $password = $document['password'];
-  echo "Hashed password: $password<br><br>";
-}
-
 ?>
 </div>
 </div>

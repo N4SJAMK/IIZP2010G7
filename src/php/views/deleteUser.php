@@ -19,31 +19,17 @@
 
 <div id="container" data-role="main" class="ui-content">
 
-<h1>User Management</h1>
+<!-- <h1>User Management</h1> -->
 <?php
-echo "<p>I Am Now A Mobile Developer!!</p>";
+//echo "<p>I Am Now A Mobile Developer!!</p>";
 
-$kayttajat = findAll($collection);
+$email = $_GET['email'];
 
-echo "<table border=1><tr>";
-echo "<td>Email</td>";
-echo "<td>ID</td>";
-//echo "<td>Password</td>";
-echo "<td>Delete User</td>";
-echo "</tr>";
-foreach ($kayttajat as $document) {
-  echo "<tr>";
-  $email = $document['email'];
-  echo "<td><a href=''>$email</a></td>";
-  $id = $document['_id'];
-  echo "<td>$id</td>";
-  $password = $document['password'];
-  //echo "<td>$password</td>";
-  echo "<td><a href='deleteUser.php?email=$email'><button>&#9785;</button></a></td>";  
-  echo "</tr>";
-}
-echo "</table>";
-
+echo "<h2 style='text-align: center;'>Are you sure you want to delete user $email ?</h2>\n";
+//echo "<a href=''><button>Yes</button></a>";
+echo "<button onclick=''>\nYes</button>\n";
+echo "<a href='userManagement.php'><button>No</button></a>";
+//
 ?>
 </div>
 </div>
