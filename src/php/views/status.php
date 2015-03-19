@@ -1,4 +1,6 @@
 <?php include '../header.php';?>
+<?php include '../../../mongo/db-init.php';?>
+<?php include '../../../mongo/functions.php';?>
 <div data-role="page" data-theme="b">
 <body>
 
@@ -20,6 +22,18 @@
 <h1>Status</h1>
 <?php
 echo "<p>I Am Now A Mobile Developer!!</p>";
+
+$kayttajat = findAll($collection);
+
+foreach ($kayttajat as $document) {
+  $email = $document['email'];
+  echo "Email: $email<br>";
+  $id = $document['_id'];
+  echo "ID: $id<br>";
+  $password = $document['password'];
+  echo "Hashed password: $password<br><br>";
+}
+
 ?>
 </div>
 </div>
