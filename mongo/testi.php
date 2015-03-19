@@ -37,15 +37,18 @@ foreach ($result as $document) {
 
 
 
-
+/*
 $email = "eemai1212adli@testi.fi";
 $password = "asddsdsaasd";
 
 insert($collection,$email,$password);
 
-$email2 = "asdasd@dsadsa.fi";
+$email2 = "asasdasddasd@dsadsa.fi";
 $password2 = "salaslalslals";
 
-update($collection,$email,password,$email2,password2);
+update($collection,$email,$email2,password2);
+*/
+
+update($collection,"pete@pate.pat","pet2e@pate.pat","sepsspo");
 
 ?>

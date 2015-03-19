@@ -22,11 +22,21 @@ function insert($collection,$email,$password) {
   ));
 }
 
-function update($collection,$emailOld,$passwordOld,$emailNew,$passwordNew) {
-  $result = collection->find(array('email' => "$emailOld"));
+function update($collection,$emailOld,$emailNew,$passwordNew) {
+  $result = $collection->find(array('email' => "$emailOld"));
   foreach ($result as $document) {
     $id = $document['_id'];
+    $password = $document['password'];
+    $email = $document['email'];
+    echo "Updating user id: $id";
   }
+  if ($emailNew === '') {
+    $emailNew = $email;
+  }
+  if ($passwordNew === '') {
+    $passwordNew = $password;
+  }
+  
   $collection->update(
     array('_id' => $id),
     array(
