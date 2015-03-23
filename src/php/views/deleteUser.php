@@ -6,6 +6,7 @@
 
 <div data-role="header" data-theme="b" id="navtop">
     <h1>Admin Panel</h1>
+  <a href="logout.php" class="ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-action">Logout</a>
 	 <a href="options.php" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear">Options</a>
 	 <div data-role="navbar" data-grid="c" data-theme="b">
     <ul>

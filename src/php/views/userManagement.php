@@ -6,7 +6,8 @@
 
 <div data-role="header" data-theme="b" id="navtop">
     <h1>Admin Panel</h1>
-	 <a href="options.php" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear">Options</a>
+     <a href="logout.php" class="ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-action">Logout</a>
+	<a href="options.php" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear">Options</a>
 	 <div data-role="navbar" data-grid="c" data-theme="b">
     <ul>
         <li><a href="status.php">Status</a></li>
@@ -21,7 +22,7 @@
 
 <h1>User Management</h1>
 <?php
-echo "<p>I Am Now A Mobile Developer!!</p>";
+//echo "<p>I Am Now A Mobile Developer!!</p>";
 
 $kayttajat = findAll($users);
 $taulut = findAll($boards);
@@ -48,9 +49,7 @@ foreach ($kayttajat as $document) {
   $laskuri = 0;
   foreach ($taulut as $document) {
     if ($id == $document['createdBy']) {
-      $laskuri++;
-      //$accessCode = $document['accessCode'];
-      //echo "$accessCode";  
+      $laskuri++; 
     }
   }
   echo "$laskuri";

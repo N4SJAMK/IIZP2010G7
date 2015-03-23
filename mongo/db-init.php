@@ -16,4 +16,8 @@ $users = $dbname->selectCollection('users');
 $boards = $dbname->selectCollection('boards');
 //echo "Collection select success!<br>";
 
+
+//Selecting collection
+$admins = $dbname->selectCollection('admins');
+//echo "Collection select success!<br>";
 ?>

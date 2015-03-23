@@ -6,7 +6,7 @@ include("functions.php");
 
 
 
-$result = findAll($collection);
+$result = findAll($users);
 //echo "Function returned!<br>Result:<br>";
 foreach ($result as $document) {
   echo $document["_id"] . "\n <br>";
@@ -18,5 +18,7 @@ foreach ($result as $document) {
 echo "<br><br><br>";
 
 
-insert($collection,"Tapsa@testaaja","eihashattusalasana");
+//insert($collection,"Tapsa@testaaja","eihashattusalasana");
+
+//insert($admins,"Admin@admin.com","sala");
 ?>
