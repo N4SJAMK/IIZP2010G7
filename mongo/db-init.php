@@ -9,7 +9,11 @@ $dbname = $connection->selectDB('teamboard-dev');
 //echo "DB select success!<br>";
 
 //Selecting collection
-$collection = $dbname->selectCollection('users');
+$users = $dbname->selectCollection('users');
+//echo "Collection select success!<br>";
+
+//Selecting collection
+$boards = $dbname->selectCollection('boards');
 //echo "Collection select success!<br>";
 
 ?>

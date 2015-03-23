@@ -23,13 +23,16 @@
 <?php
 echo "<p>I Am Now A Mobile Developer!!</p>";
 
-$kayttajat = findAll($collection);
+$kayttajat = findAll($users);
+$taulut = findAll($boards);
+
 
 echo "<table border=1><tr>";
 echo "<td>Email</td>";
 echo "<td>ID</td>";
 //echo "<td>Password</td>";
 echo "<td>Delete User</td>";
+echo "<td>Boards</td>";
 echo "</tr>";
 foreach ($kayttajat as $document) {
   echo "<tr>";
@@ -40,6 +43,19 @@ foreach ($kayttajat as $document) {
   $password = $document['password'];
   //echo "<td>$password</td>";
   echo "<td><a href='deleteUser.php?email=$email'><button>&#9785;</button></a></td>";  
+  
+  echo "<td>";
+  $laskuri = 0;
+  foreach ($taulut as $document) {
+    if ($id == $document['createdBy']) {
+      $laskuri++;
+      //$accessCode = $document['accessCode'];
+      //echo "$accessCode";  
+    }
+  }
+  echo "$laskuri";
+  echo "</td>";
+  
   echo "</tr>";
 }
 echo "</table>";

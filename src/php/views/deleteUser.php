@@ -23,11 +23,19 @@
 <?php
 //echo "<p>I Am Now A Mobile Developer!!</p>";
 
+if(isset($_POST['email'])) {
+  deleteUser($users,$_POST['email']);
+  header ('Location: userManagement.php');
+}
+
 $email = $_GET['email'];
 
 echo "<h2 style='text-align: center;'>Are you sure you want to delete user $email ?</h2>\n";
 //echo "<a href=''><button>Yes</button></a>";
-echo "<button onclick=''>\nYes</button>\n";
+echo "<form method='POST' action='deleteUser.php'>";
+echo "<input type=submit value='Yes'>";
+echo "<input type=hidden name='email' value='$email'> </form>";
+//echo "<button onclick='deleteUser($users,$email);'>\nYes</button>\n";
 echo "<a href='userManagement.php'><button>No</button></a>";
 //
 ?>

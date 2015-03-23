@@ -18,5 +18,5 @@ foreach ($result as $document) {
 echo "<br><br><br>";
 
 
-//insert($collection,"Tapsa@testaaja","eihashattusalasana");
+insert($collection,"Tapsa@testaaja","eihashattusalasana");
 ?>

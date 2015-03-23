@@ -7,9 +7,16 @@ function findAll($collection) {
   return $result;
 }
 
-function find($collection, $search) {
+function findByEmail($collection, $search) {
   //echo "Funtions initialized!<br>";
   $result = $collection->find(array('email' => "$search"));
+  //echo "Find done!<br>";
+  return $result;
+}
+
+function findBoardsById($collection, $search) {
+  //echo "Funtions initialized!<br>";
+  $result = $collection->find(array('createdBy' => "$search"));
   //echo "Find done!<br>";
   return $result;
 }
@@ -47,7 +54,12 @@ function update($collection,$emailOld,$emailNew,$passwordNew) {
 }
 
 function deleteUser($collection,$email) {
-  echo "hoho";
+//  $result = $collection->find(array('email' => "$email"));
+//  foreach ($result as $document) {
+//    $id = $document['_id'];
+//  }
+ // $collection->remove(array('_id' => "$id"));
+$collection->remove(array('email' => "$email"));
 }
 
 ?>
