@@ -20,5 +20,5 @@ echo "<br><br><br>";
 
 //insert($collection,"Tapsa@testaaja","eihashattusalasana");
 
-//insert($admins,"Admin@admin.com","sala");
+insert($admins,"Admin@admin.com","sala");
 ?>

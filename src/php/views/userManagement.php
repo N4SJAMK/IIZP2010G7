@@ -21,42 +21,50 @@
 <div id="container" data-role="main" class="ui-content">
 
 <h1>User Management</h1>
+<form>
+    <input id="filterTable-input" data-type="search">
+</form>
 <?php
 //echo "<p>I Am Now A Mobile Developer!!</p>";
 
 $kayttajat = findAll($users);
 $taulut = findAll($boards);
 
-
-echo "<table border=1><tr>";
-echo "<td>Email</td>";
-echo "<td>ID</td>";
-//echo "<td>Password</td>";
-echo "<td>Delete User</td>";
-echo "<td>Boards</td>";
-echo "</tr>";
+?>
+<table data-role="table" id="movie-table" data-filter="true" data-input="#filterTable-input" class="ui-responsive">
+<thead>
+	<tr>
+		<th data-priority="1">Email</th>
+		<th data-priority="persist">ID</th>
+		<th data-priority="3">Delete User</th>
+		<th data-priority="4">Boards</th>
+	</tr>
+</thead>
+<tbody>
+<?php
 foreach ($kayttajat as $document) {
   echo "<tr>";
-  $email = $document['email'];
-  echo "<td><a href=''>$email</a></td>";
-  $id = $document['_id'];
-  echo "<td>$id</td>";
-  $password = $document['password'];
-  //echo "<td>$password</td>";
-  echo "<td><a href='deleteUser.php?email=$email'><button>&#9785;</button></a></td>";  
-  
-  echo "<td>";
-  $laskuri = 0;
-  foreach ($taulut as $document) {
-    if ($id == $document['createdBy']) {
-      $laskuri++; 
-    }
-  }
-  echo "$laskuri";
-  echo "</td>";
+	$email = $document['email'];
+		echo "<td><a href=''>$email</a></td>";
+	$id = $document['_id'];
+		echo "<td>$id</td>";
+	$password = $document['password'];
+	//echo "<td>$password</td>";
+		echo "<td><a href='deleteUser.php?email=$email'><button>&#9785;</button></a></td>";  
+	
+	echo "<td>";
+		$laskuri = 0;
+		foreach ($taulut as $document) {
+			if ($id == $document['createdBy']) {
+			$laskuri++; 
+			}
+		}
+		echo "$laskuri";
+	echo "</td>";
   
   echo "</tr>";
 }
+echo "</tbody>";
 echo "</table>";
 
 ?>
