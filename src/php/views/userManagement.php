@@ -35,9 +35,9 @@ $taulut = findAll($boards);
 <thead>
 	<tr>
 		<th data-priority="1">Email</th>
-		<th data-priority="persist">ID</th>
-		<th data-priority="3">Delete User</th>
-		<th data-priority="4">Boards</th>
+		<th data-priority="2">ID</th>
+		<th data-priority="3">Boards</th>
+		<th data-priority="4">Delete User</th>
 	</tr>
 </thead>
 <tbody>
@@ -50,7 +50,7 @@ foreach ($kayttajat as $document) {
 		echo "<td>$id</td>";
 	$password = $document['password'];
 	//echo "<td>$password</td>";
-		echo "<td><a href='deleteUser.php?email=$email'><button>&#9785;</button></a></td>";  
+		
 	
 	echo "<td>";
 		$laskuri = 0;
@@ -61,7 +61,8 @@ foreach ($kayttajat as $document) {
 		}
 		echo "$laskuri";
 	echo "</td>";
-  
+  echo "<td><a href='deleteUser.php?email=$email'><button data-icon='delete' data-iconpos='notext' style='margin-left:30px;'></button></a></td>";
+ 
   echo "</tr>";
 }
 echo "</tbody>";
