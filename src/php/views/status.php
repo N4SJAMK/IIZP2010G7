@@ -26,7 +26,7 @@
 
 $kayttajat = findAll($users);
 
-echo "<div id='statusUsers'>";
+echo "<div id='statusUsers'> <img src='../../profile-icon.png' height='100' width='100'/>";
 	echo "<h3>Registered users: </h3>";
 	$usersLaskuri = 0;
 	foreach ($kayttajat as $document) {
@@ -35,7 +35,7 @@ echo "<div id='statusUsers'>";
 	echo "$usersLaskuri<br>\n";
 echo "</div>";
 
-echo "<div id='statusUsers'>";
+echo "<div id='statusUsers'> <img src='../../board.png' height='100' width='100'/>";
 	echo "<h3>Created boards: </h3>";
 	$taulut = findAll($boards);
 	$boardsLaskuri = 0;
@@ -45,7 +45,7 @@ echo "<div id='statusUsers'>";
 	echo "$boardsLaskuri<br>\n";
 echo "</div>";
 
-echo "<div id='statusUsers'>";
+echo "<div id='statusUsers'> <img src='../../profile-icon.png' height='100' width='100'/><img src='../../board.png' height='100' width='100'/>";
 	echo "<h3>Average boards / user: </h3>";
 	$avg = $boardsLaskuri / $usersLaskuri;
 	$avground = round($avg,2);
