@@ -51,6 +51,24 @@ echo "<div id='statusUsers'> <img src='../../profile-icon.png' height='100' widt
 	$avground = round($avg,2);
 	echo "$avground<br>\n";
 echo "</div>";
+
+echo "<div id='statusUsers'> <img src='../../board.png' height='100' width='100'/>";
+    echo "<h3>Created tickets: </h3>";
+    $tiketit = findAll($tickets);
+    $ticketsLaskuri = 0;
+    foreach ($tiketit as $document) {
+    $ticketsLaskuri++;
+    }
+    echo "$ticketsLaskuri<br>\n";
+echo "</div>";
+
+echo "<div id='statusUsers'> <img src='../../board.png' height='100' width='100'/><img src='../../board.png' height='100' width='100'/>";
+	echo "<h3>Average tickets / board: </h3>";
+	$avg2 = $ticketsLaskuri / $boardsLaskuri;
+	$avground2 = round($avg2,2);
+	echo "$avground2<br>\n";
+echo "</div>";
+
 ?>
 </div>
 </div>

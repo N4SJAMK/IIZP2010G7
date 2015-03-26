@@ -61,6 +61,7 @@ foreach ($kayttajat as $document) {
 		}
 		echo "$laskuri";
 	echo "</td>";
+  
   echo "<td><a href='deleteUser.php?email=$email'><button data-icon='delete' data-iconpos='notext' style='margin-left:30px;'></button></a></td>";
  
   echo "</tr>";

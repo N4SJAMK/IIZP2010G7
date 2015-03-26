@@ -20,4 +20,9 @@ $boards = $dbname->selectCollection('boards');
 //Selecting collection
 $admins = $dbname->selectCollection('admins');
 //echo "Collection select success!<br>";
+
+//Selecting collection
+$tickets = $dbname->selectCollection('tickets');
+//echo "Collection select success!<br>";
+
 ?>
