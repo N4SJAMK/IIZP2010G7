@@ -26,25 +26,31 @@
 
 $kayttajat = findAll($users);
 
-echo "Registered users: ";
-$usersLaskuri = 0;
-foreach ($kayttajat as $document) {
-  $usersLaskuri++;
-}
-echo "$usersLaskuri<br>\n";
+echo "<div id='statusUsers'>";
+	echo "<h3>Registered users: </h3>";
+	$usersLaskuri = 0;
+	foreach ($kayttajat as $document) {
+	$usersLaskuri++;
+	}
+	echo "$usersLaskuri<br>\n";
+echo "</div>";
 
-echo "Created boards: ";
-$taulut = findAll($boards);
-$boardsLaskuri = 0;
-foreach ($taulut as $document) {
-  $boardsLaskuri++;
-}
-echo "$boardsLaskuri<br>\n";
+echo "<div id='statusUsers'>";
+	echo "<h3>Created boards: </h3>";
+	$taulut = findAll($boards);
+	$boardsLaskuri = 0;
+	foreach ($taulut as $document) {
+	$boardsLaskuri++;
+	}
+	echo "$boardsLaskuri<br>\n";
+echo "</div>";
 
-echo "Average boards / user: ";
-$avg = $boardsLaskuri / $usersLaskuri;
-echo "$avg<br>\n";
-
+echo "<div id='statusUsers'>";
+	echo "<h3>Average boards / user: </h3>";
+	$avg = $boardsLaskuri / $usersLaskuri;
+	$avground = round($avg,2);
+	echo "$avground<br>\n";
+echo "</div>";
 ?>
 </div>
 </div>
