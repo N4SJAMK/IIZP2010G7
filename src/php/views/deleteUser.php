@@ -25,7 +25,7 @@
 //echo "<p>I Am Now A Mobile Developer!!</p>";
 
 if(isset($_POST['email'])) {
-  deleteUser($users,$_POST['email']);
+  deleteUser($users,$_POST['email'],$boards,$tickets);
   header ('Location: userManagement.php');
 }
 

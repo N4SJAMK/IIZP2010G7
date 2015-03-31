@@ -34,6 +34,7 @@ echo "<div id='statusUsers'> <img src='../../profile-icon.png' height='100' widt
 	}
 	echo "$usersLaskuri<br>\n";
 echo "</div>";
+$kayttajat = NULL;
 
 echo "<div id='statusUsers'> <img src='../../board.png' height='100' width='100'/>";
 	echo "<h3>Created boards: </h3>";
@@ -44,6 +45,7 @@ echo "<div id='statusUsers'> <img src='../../board.png' height='100' width='100'
 	}
 	echo "$boardsLaskuri<br>\n";
 echo "</div>";
+$taulut = NULL;
 
 echo "<div id='statusUsers'> <img src='../../profile-icon.png' height='100' width='100'/><img src='../../board.png' height='100' width='100'/>";
 	echo "<h3>Average boards / user: </h3>";
@@ -61,6 +63,7 @@ echo "<div id='statusUsers'> <img src='../../board.png' height='100' width='100'
     }
     echo "$ticketsLaskuri<br>\n";
 echo "</div>";
+$tiketit = NULL;
 
 echo "<div id='statusUsers'> <img src='../../board.png' height='100' width='100'/><img src='../../board.png' height='100' width='100'/>";
 	echo "<h3>Average tickets / board: </h3>";
