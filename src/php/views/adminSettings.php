@@ -22,7 +22,17 @@
 
 <h1>Admin Settings</h1>
 <?php
-echo "<p>I Am Now A Mobile Developer!!</p>";
+//echo "<p>I Am Now A Mobile Developer!!</p>";
+
+foreach (findAll($admins) as $adminit) {
+  echo "<form method='POST' action=''>";
+  $ekho = $adminit['email'];
+  echo "Email: <input type='text' name='email' value='$ekho'>";
+  echo "<input tupe='submit' name='action' value='Change'>";
+  echo "</form>";
+  echo "";
+} 
+
 ?>
 </div>
 </div>
