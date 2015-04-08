@@ -30,13 +30,23 @@ function insert($collection,$email,$password) {
 }
 
 function update($collection,$emailOld,$emailNew,$passwordNew) {
+	// !! Update user toimii, mut password hashauksen tarvitsee, muuttaa kyllä salasanan kantaan.
+	// Kirjautuminen ei onnistu ilman salasanan hashiä.
   $result = $collection->find(array('email' => "$emailOld"));
   foreach ($result as $document) {
     $id = $document['_id'];
     $password = $document['password'];
     $email = $document['email'];
-    echo "Updating user id: $id";
+    //echo "Updating user id: $id";
   }
+
+  var_dump($id);
+  var_dump($password);
+  var_dump($passwordNew);
+  var_dump($email);
+  
+  
+  
   if ($emailNew === '') {
     $emailNew = $email;
   }
@@ -51,6 +61,7 @@ function update($collection,$emailOld,$emailNew,$passwordNew) {
       'password' => "$passwordNew"
     )
   );
+  var_dump($collection->findOne(array('_id' => $id)));
 }
 
 function deleteUser($users,$email,$boards,$tickets) {

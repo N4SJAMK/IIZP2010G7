@@ -20,5 +20,7 @@ echo "<br><br><br>";
 
 //insert($collection,"Tapsa@testaaja","eihashattusalasana");
 
-//insert($admins,"Admin@admin.com","sala");
+//insert($admins,"Admin@admin2.com","sala");
+//update($users,"ali_aldool@yahoo.com","ali_aldool@yahoo.com",'ali123456')
+
 ?>
