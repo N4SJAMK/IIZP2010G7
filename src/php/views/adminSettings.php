@@ -25,23 +25,21 @@
 if (isset($_POST['emailNEW']) && isset($_POST['passwordNEW']) && isset($_POST['passwordNEW2'])) {
   if ($_POST['passwordNEW'] == $_POST['passwordNEW2']) {
     insert($admins,$_POST['emailNEW'],$_POST['passwordNEW']);
-    echo "<h2>User added!</h2>";
-  } else {
-    echo "<h2>Passwords did not match!</h2>";
-    echo "<form method='POST' action='adminSettings.php'>";
-    echo "Email: <input type='text' name='emailNEW'>";
-    echo "Password: <input type='password' name='passwordNEW'>";
-    echo "Retype password: <input type='password' name='passwordNEW2'>";
-    echo "<input type='submit' value='Create'>";
-    echo "</form>";
+    echo "<p style='color: #228B22;font-size: 11px;border-bottom: 1px solid #FFF;padding-bottom: 8px;'>User added</p>";
+  }else if (!preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z]{8,20}$/', $_POST['passwordNEW'],$_POST['passwordNEW2'] )) {
+	echo "<p style='color: #B22222;font-size: 11px;border-bottom: 1px solid #FFF;padding-bottom: 8px;'>Passwords must be at least 8 characters long. And it has to contain at least one letter and one number.</p>";
   }
-} else {
+  else {
+    echo "<p style='color: #B22222;font-size: 11px;border-bottom: 1px solid #FFF;padding-bottom: 8px;'>Passwords did not match!</p>";
+  }
+}
+else {
   echo "<h2>Create new account</h2>";
 }
 echo "<form method='POST' action='adminSettings.php'>";
-echo "Email: <input type='text' name='emailNEW'>";
-echo "Password: <input type='password' name='passwordNEW'>";
-echo "Retype password: <input type='password' name='passwordNEW2'>";
+echo "Email: <input type='text' name='emailNEW' required>";
+echo "Password: <input type='password' name='passwordNEW' required>";
+echo "Retype password: <input type='password' name='passwordNEW2' required>";
 echo "<input type='submit' value='Create'>";
 echo "</form>";
 /*
