@@ -66,7 +66,7 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['emailOL
 	<tr>
 		<th data-priority="1">Email</th>
 		<th data-priority="2">ID</th>
-		<th data-priority="3">Delete User</th>
+		<th data-priority="3">Delete Admin</th>
 		<th data-priority="4">Change password</th>
 	</tr>
 </thead>
