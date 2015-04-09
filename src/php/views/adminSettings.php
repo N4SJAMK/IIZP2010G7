@@ -90,12 +90,12 @@ echo "<td><a  href='#popupLogin' data-id='".$id."' data-email='".$email."' email
 	if (isset($_POST['submit'])) {
 		if(!preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z]{8,20}$/', $_POST['pass'])) {
 			echo "<p style='color: #B22222;font-size: 11px;border-bottom: 1px solid #FFF;padding-bottom: 8px;'>Passwords must be at least 8 characters long. And it has to contain at least one letter and one number.</p>";
-			header("Refresh: 5; url=userManagement.php");
+			header("Refresh: 5; url=adminSettings.php");
 		}
 	else {
 				update($admins,$_POST['email'],"",$_POST['pass']);
 					echo "<p style='color: #228B22;font-size: 11px;border-bottom: 1px solid #FFF;padding-bottom: 8px;'>Password Updated successfully</p>";
-					header("Refresh: 5; url=userManagement.php");
+					header("Refresh: 5; url=adminSettings.php");
 				}
 	}
 echo "</tbody>";
@@ -106,6 +106,47 @@ echo "</table>";
 
  echo "";
 ?>
+  <div data-role="popup" id="popupLogin" data-theme="b" class="ui-corner-all">
+
+    <form method='POST' action='adminSettings.php'>
+        <div style="padding:10px 20px;">
+            <h3>Please Enter a new password</h3>
+			<label for="email_post" class="ui-hidden-accessible">Password:</label>
+			 <input name="email" id="email_post" value="" data-theme="b"   readonly>
+            <label for="pw" class="ui-hidden-accessible">Password:</label>
+            <input name="pass" id="pw" value="" placeholder="New password" data-theme="b" type="password" required >
+			<button aria-disabled="false" class="ui-btn-hidden" type="submit" name="submit" value="submit" >Confirm</button>
+		</div>
+	</form>	
+</div>
+
+
+</div>
+</body>
+
+<script>
+$(".password").click(function( event ){
+ 
+	
+	var $form = $(this),
+	id = $form.data("id"),
+	email = $form.data("email"),
+	url = $form.attr("action");
+	
+
+	$('#popupLogin').attr('data-id' , id);
+	$('#popupLogin').attr('data-email' , email);
+	
+	var elem = document.getElementById("email_post")
+	elem.value = email;
+	
+	
+
+		
+});
+
+
+</script>
 </div>
 </div>
 </body>
