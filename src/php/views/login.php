@@ -8,8 +8,10 @@ if (isset($_POST['email'])) {
   $admins = findAll($admins);
   foreach ($admins as $admin) {
     if ($_POST['email'] == $admin['email']) {
+		
       if ($_POST['password'] == $admin['password']) {
         $_SESSION['loggedIn'] = true;
+		$_SESSION['email'] = $admin['email'];
         header('Location: status.php');
       }
     }

@@ -79,9 +79,7 @@ echo "<td><a  href='#popupLogin' data-id='".$id."' data-email='".$email."' email
 	}
 echo "</tbody>";
 echo "</table>";
-		$myVar = $_POST['myVar'];
-		echo $myVar;
-		//var_dump($myVar);
+		
 ?> 
 <div data-role="popup" id="popupLogin" data-theme="b" class="ui-corner-all">
 
