@@ -22,17 +22,47 @@
 
 <h1>Admin Settings</h1>
 <?php
+if (isset($_POST['emailNEW']) && isset($_POST['passwordNEW']) && isset($_POST['passwordNEW2'])) {
+  if ($_POST['passwordNEW'] == $_POST['passwordNEW2']) {
+    insert($admins,$_POST['emailNEW'],$_POST['passwordNEW']);
+    echo "User added!";
+  } else {
+    echo "<h2>Passwords did not match!</h2>";
+    echo "<form method='POST' action='adminSettings.php'>";
+    echo "Email: <input type='text' name='emailNEW'>";
+    echo "Password: <input type='password' name='passwordNEW'>";
+    echo "Retype password: <input type='password' name='passwordNEW2'>";
+    echo "<input type='submit' value='Create'>";
+    echo "</form>";
+  }
+} else {
+  echo "<h2>Create new account</h2>";
+  echo "<form method='POST' action='adminSettings.php'>";
+  echo "Email: <input type='text' name='emailNEW'>";
+  echo "Password: <input type='password' name='passwordNEW'>";
+  echo "Retype password: <input type='password' name='passwordNEW2'>";
+  echo "<input type='submit' value='Create'>";
+  echo "</form>";
+}
 
- echo "<form method='POST' action=''>";
-foreach (findAll($admins) as $adminit) {
- 
-  $email = $adminit['email'];
-  echo "Email: <input type='text' name='email' value='$email'>";
-  echo "Password: <input type='text' name='email' value=''>";
-  echo "<input type='submit' value='Change'>";
- 
-} 
- echo "</form>";
+if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['emailOLD'])) {
+  update($admins,$_POST['emailOLD'],$_POST['email'],$_POST['password']);
+  echo "User updaed!";
+} else {
+  echo "<h2>Change accounts</h2>";
+  foreach (findAll($admins) as $adminit) {
+    echo "<form method='POST' action=''>";
+    $email = $adminit['email'];
+    echo "Email: <input type='text' name='email' value='$email'>";
+    echo "Password: <input type='password' name='password'>";
+    echo "<input type='hidden' name='emailOLD' value='$email'>";
+    echo "<input type='submit' value='Change'>";
+    echo "</form>";
+  } 
+}
+
+
+
  echo "";
 ?>
 </div>
