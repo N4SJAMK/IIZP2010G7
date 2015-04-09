@@ -25,7 +25,7 @@
 if (isset($_POST['emailNEW']) && isset($_POST['passwordNEW']) && isset($_POST['passwordNEW2'])) {
   if ($_POST['passwordNEW'] == $_POST['passwordNEW2']) {
     insert($admins,$_POST['emailNEW'],$_POST['passwordNEW']);
-    echo "User added!";
+    echo "<h2>User added!</h2>";
   } else {
     echo "<h2>Passwords did not match!</h2>";
     echo "<form method='POST' action='adminSettings.php'>";
@@ -37,13 +37,13 @@ if (isset($_POST['emailNEW']) && isset($_POST['passwordNEW']) && isset($_POST['p
   }
 } else {
   echo "<h2>Create new account</h2>";
-  echo "<form method='POST' action='adminSettings.php'>";
-  echo "Email: <input type='text' name='emailNEW'>";
-  echo "Password: <input type='password' name='passwordNEW'>";
-  echo "Retype password: <input type='password' name='passwordNEW2'>";
-  echo "<input type='submit' value='Create'>";
-  echo "</form>";
 }
+echo "<form method='POST' action='adminSettings.php'>";
+echo "Email: <input type='text' name='emailNEW'>";
+echo "Password: <input type='password' name='passwordNEW'>";
+echo "Retype password: <input type='password' name='passwordNEW2'>";
+echo "<input type='submit' value='Create'>";
+echo "</form>";
 /*
 if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['emailOLD'])) {
   update($admins,$_POST['emailOLD'],$_POST['email'],$_POST['password']);
