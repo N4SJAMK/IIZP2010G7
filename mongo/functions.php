@@ -81,4 +81,23 @@ function deleteUser($users,$email,$boards,$tickets) {
   $users->remove(array('_id' => new MongoID("$userid")));
 }
 
+function deleteAdmin($admins,$email) {
+  /*
+  $resultid = $users->find(array('email' => "$email"));
+  foreach ($resultid as $userresult) {
+    $userid = $userresult['_id'];
+
+    $resultboards = $boards->find(array('createdBy' => new MongoID("$userid")));
+    foreach ($resultboards as $boardresult) {
+      $boardid = $boardresult['_id'];
+      
+      $tickets->remove(array('board' => new MongoID("$boardid")));
+    }
+  }
+  $boards->remove(array('createdBy' => new MongoID("$userid")));
+  $users->remove(array('_id' => new MongoID("$userid")));
+  */
+  $admins->remove(array('email' => "$email"));
+}
+
 ?>

@@ -44,7 +44,7 @@ if (isset($_POST['emailNEW']) && isset($_POST['passwordNEW']) && isset($_POST['p
   echo "<input type='submit' value='Create'>";
   echo "</form>";
 }
-
+/*
 if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['emailOLD'])) {
   update($admins,$_POST['emailOLD'],$_POST['email'],$_POST['password']);
   echo "User updaed!";
@@ -59,9 +59,50 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['emailOL
     echo "<input type='submit' value='Change'>";
     echo "</form>";
   } 
+}*/
+?>
+<table data-role="table" id="movie-table" data-filter="true" data-input="#filterTable-input" class="ui-responsive">
+<thead>
+	<tr>
+		<th data-priority="1">Email</th>
+		<th data-priority="2">ID</th>
+		<th data-priority="3">Delete User</th>
+		<th data-priority="4">Change password</th>
+	</tr>
+</thead>
+<tbody>
+
+<?php 
+
+foreach (findAll($admins) as $adminit) {
+  echo "<tr>";
+	$email = $adminit['email'];
+		echo "<td><a href=''>$email</a></td>";
+	$id = $adminit['_id'];
+		echo "<td>$id</td>";
+  
+  echo "<td><a href='deleteAdmin.php?email=$email'><button data-icon='delete' data-iconpos='notext' style='margin-left:30px;'></button></a></td>";
+	
+echo "<td><a  href='#popupLogin' data-id='".$id."' data-email='".$email."' email='".$email."' id='".$id."'  data-rel='popup' data-overlay-theme='a' data-position-to='window' data-transition='slide' class='password ui-btn ui-corner-all ui-shadow ui-icon-alert ui-btn-icon-notext' style='margin-left:50px;'></a></td>";
+  echo "</tr>";
+ 
 }
-
-
+	if (isset($_POST['submit'])) {
+		if(!preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z]{8,20}$/', $_POST['pass'])) {
+			echo "<p style='color: #B22222;font-size: 11px;border-bottom: 1px solid #FFF;padding-bottom: 8px;'>Passwords must be at least 8 characters long. And it has to contain at least one letter and one number.</p>";
+			header("Refresh: 5; url=userManagement.php");
+		}
+	else {
+				update($admins,$_POST['email'],"",$_POST['pass']);
+					echo "<p style='color: #228B22;font-size: 11px;border-bottom: 1px solid #FFF;padding-bottom: 8px;'>Password Updated successfully</p>";
+					header("Refresh: 5; url=userManagement.php");
+				}
+	}
+echo "</tbody>";
+echo "</table>";
+		$myVar = $_POST['myVar'];
+		echo $myVar;
+		//var_dump($myVar);
 
  echo "";
 ?>
