@@ -23,8 +23,6 @@
 
 <h1>Database Management</h1>
 <?php
-//echo "<p>I Am Now A Mobile Developer!!</p>";
-
 if (isset($_POST['do'])) {
   $dumpfolder = "/tmp";
   $dumper = new MongoDumper("$dumpfolder");
@@ -33,8 +31,33 @@ if (isset($_POST['do'])) {
   // Switch to true for debug info
   
   echo "<h2>Dumped to $dumpfolder !</h2>";
-  
 }
+
+//echo "<p>I Am Now A Mobile Developer!!</p>";
+
+  //$dir = dirname($_SERVER['SCRIPT_FILENAME'])."/";
+  $dir = "/tmp/";
+  
+  $fiilut = array();
+
+  $handle = opendir($dir);
+
+  while($file = readdir($handle)) {
+      if (is_file($dir.$file)) {
+			$fiilut[] = $file;
+            //echo "$file";
+		}	
+	}
+
+rsort($fiilut);
+
+  foreach($fiilut as $filu) {
+	echo "<div style='padding: 5px'>";
+	echo "<a href='/mongo/tmp/$filu'>$filu</a>";
+	echo "</div>";
+
+}
+
 ?>
   
   <form method="post" action="<?php $_SERVER['PHP_SELF']?>">
