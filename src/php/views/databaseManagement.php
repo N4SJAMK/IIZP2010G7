@@ -24,7 +24,7 @@
 <h1>Database Management</h1>
 <?php
 if (isset($_POST['do'])) {
-  $dumpfolder = "/tmp";
+  $dumpfolder = "/tmp/mongo";
   $dumper = new MongoDumper("$dumpfolder");
   
   $dumper->run("teamboard-dev", false);
@@ -36,7 +36,7 @@ if (isset($_POST['do'])) {
 //echo "<p>I Am Now A Mobile Developer!!</p>";
 
   //$dir = dirname($_SERVER['SCRIPT_FILENAME'])."/";
-  $dir = "/tmp/";
+  $dir = "/var/www/html/mongo/tmp/mongo/";
   
   $fiilut = array();
 
@@ -53,7 +53,7 @@ rsort($fiilut);
 
   foreach($fiilut as $filu) {
 	echo "<div style='padding: 5px'>";
-	echo "<a href='/mongo/tmp/$filu'>$filu</a>";
+	echo "<a href='/mongo/tmp/mongo/$filu'>$filu</a>";
 	echo "</div>";
 
 }
