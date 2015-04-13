@@ -1,7 +1,7 @@
 <?php include '../header.php';?>
 <?php include '../../../mongo/db-init.php';?>
 <?php include '../../../mongo/functions.php';?>
-<?php include '../../../mongo/mongodumper.php';?>
+
 <div data-role="page" data-theme="b">
 <body>
 
@@ -22,48 +22,25 @@
 <div id="container" data-role="main" class="ui-content">
 
 <h1>Database Management</h1>
-<?php
-if (isset($_POST['do'])) {
-  $dumpfolder = "/tmp";
-  $dumper = new MongoDumper("$dumpfolder");
-  
-  $dumper->run("teamboard-dev", false);
-  // Switch to true for debug info
-  
-  echo "<h2>Dumped to $dumpfolder !</h2>";
-}
-
-//echo "<p>I Am Now A Mobile Developer!!</p>";
-
-  //$dir = dirname($_SERVER['SCRIPT_FILENAME'])."/";
-  $dir = "/tmp/";
-  
-  $fiilut = array();
-
-  $handle = opendir($dir);
-
-  while($file = readdir($handle)) {
-      if (is_file($dir.$file)) {
-			$fiilut[] = $file;
-            //echo "$file";
-		}	
-	}
-
-rsort($fiilut);
-
-  foreach($fiilut as $filu) {
-	echo "<div style='padding: 5px'>";
-	echo "<a href='/mongo/tmp/$filu'>$filu</a>";
-	echo "</div>";
-
-}
-
-?>
-  
-  <form method="post" action="<?php $_SERVER['PHP_SELF']?>">
-    <input type="hidden" name="do">
-    <input type="submit" value="Backup to /tmp">
-  </form>
+ <ul class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-role="listview" data-inset="true">
+      <li class="ui-li-static ui-body-inherit ui-first-child" data-role="divider">Choose to proceed</li>
+      <li class="ui-li-has-alt ui-li-has-thumb">
+        <a class="ui-btn" href="db_export.php">
+        <img src="../../Database_Upload.png">
+        <h2>Export Data</h2>
+        <p>Use this tool to export data from your current MongoDB</p>
+        </a>
+        <a title="Export Data" class="ui-btn ui-btn-icon-notext ui-icon-carat-r" href="db_export.php"></a>
+      </li>
+      <li class="ui-li-has-alt ui-li-has-thumb ui-last-child" style="background-color:#500000 ">
+        <a class="ui-btn" href="#">
+        <img src="../../Database_Import.png">
+        <h2>Import Data</h2>
+        <p>Use this tool to Import data from your computer to MongoDB</p>
+        </a>
+        <a title="Import Data" class="ui-btn ui-btn-icon-notext ui-icon-carat-r" href="#download"></a>
+      </li>
+    </ul>
   
 </div>
 </div>
