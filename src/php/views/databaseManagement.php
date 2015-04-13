@@ -1,6 +1,7 @@
 <?php include '../header.php';?>
 <?php include '../../../mongo/db-init.php';?>
 <?php include '../../../mongo/functions.php';?>
+<?php include '../../../mongo/mongodumper.php';?>
 <div data-role="page" data-theme="b">
 <body>
 
@@ -22,8 +23,25 @@
 
 <h1>Database Management</h1>
 <?php
-echo "<p>I Am Now A Mobile Developer!!</p>";
+//echo "<p>I Am Now A Mobile Developer!!</p>";
+
+if (isset($_POST['do'])) {
+  $dumpfolder = "/tmp";
+  $dumper = new MongoDumper("$dumpfolder");
+  
+  $dumper->run("teamboard-dev", false);
+  // Switch to true for debug info
+  
+  echo "<h2>Dumped to $dumpfolder !</h2>";
+  
+}
 ?>
+  
+  <form method="post" action="<?php $_SERVER['PHP_SELF']?>">
+    <input type="hidden" name="do">
+    <input type="submit" value="Backup to /tmp">
+  </form>
+  
 </div>
 </div>
 </body>
