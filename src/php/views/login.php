@@ -22,8 +22,8 @@
 
   <form method='POST' action='login.php'>
     <div class ="loginform" style="text-align: center; max-width: 400px; margin-left: auto; margin-right: auto;">
-      <input name="email" id="textinput-fc" type="text" value="" placeholder="Sähköposti" required>
-      <input name="password" id="textinput-fc" type="password" value="" placeholder="Salasana" required>
+      <input name="email" id="textinput-fc" type="text" value="" placeholder="Email" required>
+      <input name="password" id="textinput-fc" type="password" value="" placeholder="Password" required>
       <input type="submit" value="Ok" name="submit">
     </div>
   </form>
