@@ -23,7 +23,7 @@
 <div id="container" data-role="main" class="ui-content">
 
 <h1>Database Management</h1>
-<h3>Data Export</h3>
+<h3>Data Export Details</h3>
 <?php
 	date_default_timezone_set('Europe/Riga');
 	$crtdate = date('d.m.Y H:i:s');
@@ -73,6 +73,7 @@ if ($fiilut == true){
 		<th data-priority='1'>ID</th>
 		<th data-priority='2'>Filename</th>
 		<th data-priority='3'>Download</th>
+		<th data-priority='3'>Delete</th>
 	</tr>
 </thead>
 <hr>";
@@ -88,8 +89,10 @@ $i=0;
 <td>$filu</td>
 <td><a href='".SCRIPT_ROOT.$filu."' target='download_frame'>Download File</a>
 			<iframe id='download_frame'style='display:none;'></iframe></td>
+<td><a href='deletebkup.php?file=$dumpfolder/$filu'><button data-icon='delete' data-iconpos='notext' style='margin-left:15px; bottom:10px;'>Delete</button></a></td>
 </tbody>";
-}
+
+  }
 ?>
  
 </div>

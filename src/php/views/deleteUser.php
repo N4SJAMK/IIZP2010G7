@@ -37,7 +37,7 @@ echo "<form method='POST' action='deleteUser.php'>";
 echo "<input type=submit value='Yes'>";
 echo "<input type=hidden name='email' value='$email'> </form>";
 //echo "<button onclick='deleteUser($users,$email);'>\nYes</button>\n";
-echo "<a href='userManagement.php'><button>No</button></a>";
+echo "<a href='userManagement.php' style='text-decoration: none;'><button>No</button></a>";
 //
 ?>
 </div>
