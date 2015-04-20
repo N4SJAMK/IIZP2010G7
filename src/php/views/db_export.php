@@ -25,15 +25,26 @@
 <h1>Database Management</h1>
 <h3>Data Export Details</h3>
 <?php
+    //
+    // If you are using windows, change $windows to TRUE.
+    // In mac and linux, keep FALSE;
+    //
+
+    $windows = FALSE;
+
 	date_default_timezone_set('Europe/Riga');
 	$crtdate = date('d.m.Y H:i:s');
 	
-    $dir = "/tmp/"; //Linux / Mac
-    //$dir = "/var/www/html/db-backups/"; //Windows
+    if ($windows == TRUE) {
+      $dir = "/var/www/html/db-backups/"; //Windows
+      $dumpfolder = "/var/www/html/db-backups"; //Windows
+      $dumpspace = "";
+    } else {
+      $dir = "/tmp/"; //Linux / Mac
+      $dumpfolder = "/tmp"; //Linux / Mac
+      $dumpspace = "/";
+    }
 	
-    $dumpfolder = "/tmp"; //Linux / Mac
-    //$dumpfolder = "/var/www/html/db-backups"; //Windows
-
 echo"
         <ul data-role='listview' id='activitiy-fields' data-inset='true'  style='width: 400px;'>
           <li>Mongo database: <b>$dbname</b></li>
@@ -82,9 +93,14 @@ if ($fiilut == true){
 	</tr>
 </thead>
 <hr>";
+  
 }
-define( 'SCRIPT_ROOT', $dumpfolder); //Mac / Linux
-//define( 'SCRIPT_ROOT', 'http://localhost:9003/db-backups/'); //Windows
+if ($windows == TRUE) {
+  define( 'SCRIPT_ROOT', 'http://localhost:9003/db-backups/'); //Windows
+} else {
+  define( 'SCRIPT_ROOT', $dumpfolder); //Mac / Linux
+}
+
 $i=0;
   foreach($fiilut as $filu) {
 	  $i++;
@@ -93,8 +109,8 @@ $i=0;
 <tbody>
 <td>$i</td>
 <td>$filu</td>
-<td><a href='".SCRIPT_ROOT."/".$filu."' target='download_frame'>Download File</a>
-			<iframe id='download_frame'style='display:none;'></iframe></td>
+<td><a href='".SCRIPT_ROOT.$dumpspace.$filu."' target='download_frame'>Download File</a>
+			<iframe id='download_frame'style='display:none;'></iframe></td> 
 <td><a href='deletebkup.php?file=$dumpfolder/$filu'><button data-icon='delete' data-iconpos='notext' style='margin-left:15px; bottom:10px;'>Delete</button></a></td>
 </tbody>";
 
