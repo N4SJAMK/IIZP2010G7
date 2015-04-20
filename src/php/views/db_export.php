@@ -27,8 +27,10 @@
 <?php
 	date_default_timezone_set('Europe/Riga');
 	$crtdate = date('d.m.Y H:i:s');
-	$dir = "/tmp/";
-	$dumpfolder = "/tmp";
+	//$dir = "/tmp/"; Linux / mac versio
+    $dir = "/var/www/html/db-backups/";
+	//$dumpfolder = "/tmp";
+    $dumpfolder = "/var/www/html/db-backups";
 echo"
         <ul data-role='listview' id='activitiy-fields' data-inset='true'  style='width: 400px;'>
           <li>Mongo database: <b>$dbname</b></li>
