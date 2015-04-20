@@ -27,15 +27,10 @@
 <?php
 	date_default_timezone_set('Europe/Riga');
 	$crtdate = date('d.m.Y H:i:s');
-<<<<<<< HEAD
 	//$dir = "/tmp/"; Linux / mac versio
     $dir = "/var/www/html/db-backups/";
 	//$dumpfolder = "/tmp";
     $dumpfolder = "/var/www/html/db-backups";
-=======
-	$dir = "/tmp/";
-	$dumpfolder = "/tmp/";
->>>>>>> 1889621049928d9b9a96a652e0338d3d0d097467
 echo"
         <ul data-role='listview' id='activitiy-fields' data-inset='true'  style='width: 400px;'>
           <li>Mongo database: <b>$dbname</b></li>
@@ -85,7 +80,7 @@ if ($fiilut == true){
 </thead>
 <hr>";
 }
-define( 'SCRIPT_ROOT', $dumpfolder );
+define( 'SCRIPT_ROOT', 'http://localhost:9003/db-backups/');
 $i=0;
   foreach($fiilut as $filu) {
 	  $i++;
