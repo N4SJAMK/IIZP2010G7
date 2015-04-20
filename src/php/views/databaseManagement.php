@@ -33,12 +33,12 @@
         <a title="Export Data" class="ui-btn ui-btn-icon-notext ui-icon-carat-r" href="db_export.php"></a>
       </li>
       <li class="ui-li-has-alt ui-li-has-thumb ui-last-child" style="background-color:#500000 ">
-        <a class="ui-btn" href="#">
+        <a class="ui-btn" href="db_import.php">
         <img src="../../Database_Import.png">
         <h2>Import Data</h2>
         <p>Use this tool to Import data from your computer to MongoDB</p>
         </a>
-        <a title="Import Data" class="ui-btn ui-btn-icon-notext ui-icon-carat-r" href="#download"></a>
+        <a title="Import Data" class="ui-btn ui-btn-icon-notext ui-icon-carat-r" href="db_import.php"></a>
       </li>
     </ul>
   
