@@ -27,10 +27,15 @@
 <?php
 	date_default_timezone_set('Europe/Riga');
 	$crtdate = date('d.m.Y H:i:s');
+<<<<<<< HEAD
 	//$dir = "/tmp/"; Linux / mac versio
     $dir = "/var/www/html/db-backups/";
 	//$dumpfolder = "/tmp";
     $dumpfolder = "/var/www/html/db-backups";
+=======
+	$dir = "/tmp/";
+	$dumpfolder = "/tmp/";
+>>>>>>> 1889621049928d9b9a96a652e0338d3d0d097467
 echo"
         <ul data-role='listview' id='activitiy-fields' data-inset='true'  style='width: 400px;'>
           <li>Mongo database: <b>$dbname</b></li>
@@ -89,7 +94,7 @@ $i=0;
 <tbody>
 <td>$i</td>
 <td>$filu</td>
-<td><a href='".SCRIPT_ROOT. "/" .$filu."' target='download_frame'>Download File</a>
+<td><a href='".SCRIPT_ROOT.$filu."' target='download_frame'>Download File</a>
 			<iframe id='download_frame'style='display:none;'></iframe></td>
 <td><a href='deletebkup.php?file=$dumpfolder/$filu'><button data-icon='delete' data-iconpos='notext' style='margin-left:15px; bottom:10px;'>Delete</button></a></td>
 </tbody>";
