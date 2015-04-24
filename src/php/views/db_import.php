@@ -34,14 +34,7 @@
   
 if(isset($_POST['backupped'])) {
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- * PHP file that uploads files and handles any errors that may occur
- * when the file is being uploaded. Then places that file into the 
- * "uploads" directory. File cannot work is no "uploads" directory is created in the
- * same directory as the function. 
- */
+
 
 $fileName = $_FILES["uploaded_file"]["name"];//the files name takes from the HTML form
 $fileTmpLoc = $_FILES["uploaded_file"]["tmp_name"];//file in the PHP tmp folder
