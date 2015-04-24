@@ -30,7 +30,7 @@
     // In mac and linux, keep FALSE;
     //
 
-    $windows = FALSE;
+    $windows = TRUE;
 
 	date_default_timezone_set('Europe/Riga');
 	$crtdate = date('d.m.Y H:i:s');

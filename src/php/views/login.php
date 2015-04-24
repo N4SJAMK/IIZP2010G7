@@ -43,8 +43,8 @@ if (isset($_POST['submit'])) {
 		  echo "<p style='color: #B22222;font-size: 20px;border-bottom: 1px solid #FFF;padding-bottom: 8px;'>Invalid username or password!</p>";
 		  header("Refresh: 5; url=userManagement.php");
 	  }
+    exit();
   }
-  
 }
 ?>
 </div>

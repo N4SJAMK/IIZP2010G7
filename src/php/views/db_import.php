@@ -25,42 +25,87 @@
 <h1>Database Management</h1>
 <h3>Pick exported zip file to import</h3>
 
-<?php
-if(isset($_POST['backupped'])) {
-  echo $_POST['teksti'];
-  echo $_FILES['filetto'];
-  if (isset($_FILES['filetto']['name'])) {
-    $newfilename = "backup.zip";
-    $datapath   = "/tmp/";
   
-    $newfile = $datapath . $newfilename;
-    echo $newfile;
-  
-    $uploadedfile = $_FILES['filetto']['name'];
-    echo $uploadedfile . "Jee";
-  
-  
-    if (move_uploaded_file($_FILES['filetto']['tmp_name'], $newfile)) {
-        
-      } else {
-        print "Tiedoston kopioiminen epäonnistui, Muuta informaatiota:\n";
-        print_r($_FILES);
-      }
-  
-    $undumper = new MongoDumper($newfilename);
-    //$undumper->run(true); // Switch to true for debug info
-  } else {
-    echo "variable files not set!";
-  }
-}
-?>
-  
-  <form enctype="multipart/form-data" action="<?php echo ($_SERVER['PHP_SELF'])?>" method="POST">
-    <input name="filetto" type="file"><br>
-    <input type="text" name="teksti"><br>
+  <form enctype="multipart/form-data" method="post" action="db_import.php">
+    <input name="uploaded_file" type="file" size="50"><br>
     <input type="submit" value="Submit" name="backupped">
   </form>
+  <?php
   
+if(isset($_POST['backupped'])) {
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ * PHP file that uploads files and handles any errors that may occur
+ * when the file is being uploaded. Then places that file into the 
+ * "uploads" directory. File cannot work is no "uploads" directory is created in the
+ * same directory as the function. 
+ */
+
+$fileName = $_FILES["uploaded_file"]["name"];//the files name takes from the HTML form
+$fileTmpLoc = $_FILES["uploaded_file"]["tmp_name"];//file in the PHP tmp folder
+$fileType = $_FILES["uploaded_file"]["type"];//the type of file 
+$fileSize = $_FILES["uploaded_file"]["size"];//file size in bytes
+$fileErrorMsg = $FILES["uploaded_file"]["error"];//0 for false and 1 for true
+$target_path = "uploads/" . basename( $_FILES["uploaded_file"]["name"]); 
+
+echo "file name: $fileName </br> temp file location: $fileTmpLoc<br/> file type: $fileType<br/> file size: $fileSize<br/> file upload target: $target_path<br/> file error msg: $fileErrorMsg<br/>";
+
+//START PHP Image Upload Error Handling---------------------------------------------------------------------------------------------------
+
+    if(!$fileTmpLoc)//no file was chosen ie file = null
+    {
+        echo "ERROR: Please select a file before clicking submit button.";
+        exit();
+    }
+    else
+        if(!$fileSize > 16777215)//if file is > 16MB (Max size of MEDIUMBLOB)
+        {
+            echo "ERROR: Your file was larger than 16 Megabytes";
+
+            unlink($fileTmpLoc);//remove the uploaded file from the PHP folder
+            exit();
+        }
+        else
+            if(!preg_match("/\.(gif|jpg|jpeg|png)$/i", $fileName))//this codition allows only the type of files listed to be uploaded
+            {
+                echo "ERROR: Your image was not .gif, .jpg, .jpeg or .png";
+                unlink($fileTmpLoc);//remove the uploaded file from the PHP temp folder
+                exit();
+            }
+            else
+                if($fileErrorMsg == 1)//if file uploaded error key = 1 ie is true
+                {
+                    echo "ERROR: An error occured while processing the file. Please try again.";
+                    exit();
+                }
+
+
+    //END PHP Image Upload Error Handling---------------------------------------------------------------------------------------------------------------------
+
+
+    //Place it into your "uploads" folder using the move_uploaded_file() function
+    $moveResult = move_uploaded_file($fileTmpLoc, $target_path);
+
+    //Check to make sure the result is true before continuing
+    if($moveResult != true)
+    {
+        echo "ERROR: File not uploaded. Please Try again.";
+        unlink($fileTmpLoc);//remove the uploaded file from the PHP temp folder
+
+    }
+    else
+    {
+        //Display to the page so you see what is happening 
+        echo "The file named <strong>$fileName</strong> uploaded successfully.<br/><br/>";
+        echo "It is <strong>$fileSize</strong> bytes.<br/><br/>";
+        echo "It is a <strong>$fileType</strong> type of file.<br/><br/>";
+        echo "The Error Message output for this upload is: $fileErrorMsg";
+    }
+
+}
+?>
 </div>
 </div>
 </body>
