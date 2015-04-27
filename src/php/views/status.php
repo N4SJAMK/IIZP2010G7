@@ -1,14 +1,17 @@
 <?php include '../header.php';?>
 <?php include '../../../mongo/db-init.php';?>
 <?php include '../../../mongo/functions.php';?>
-<div data-role="page" data-theme="b">
+<div data-role="page" >
 <body>
-
-<div data-role="header" data-theme="b" id="navtop">
+<div data-role="header"  id="navtop">
     <h1>Admin Panel</h1>
     <a href="logout.php" class="ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-action">Logout</a>
-	 <a href="options.php" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear">Options</a>
-	 <div data-role="navbar" data-grid="c" data-theme="b">
+   <b><label data-inline="true" style="position: absolute;
+  top: .24em; right: .28em;" >Choose theme: 
+    <a href="#" data-role="button" data-inline="true" onclick="$.mobile.changeGlobalTheme('a');">Theme a</a>
+    <a href="#" data-role="button" data-inline="true" onclick="$.mobile.changeGlobalTheme('b');">Theme b</a>
+    <label></b>
+	 <div data-role="navbar" data-grid="c" >
     <ul>
         <li><a href="status.php" class="ui-btn-active">Status</a></li>
         <li><a href="userManagement.php">User Management</a></li>
@@ -75,4 +78,31 @@ echo "</div>";
 ?>
 </div>
 </div>
+<script>
+$.mobile.changeGlobalTheme = function(theme)
+{
+    // These themes will be cleared, add more
+    // swatch letters as needed.
+    var themes = " a b";
+
+    // Updates the theme for all elements that match the
+    // CSS selector with the specified theme class.
+    function setTheme(cssSelector, themeClass, theme)
+    {
+        $(cssSelector)
+            .removeClass(themes.split(" ").join(" " + themeClass + "-"))
+            .addClass(themeClass + "-" + theme)
+            .attr("data-theme", theme);
+    }
+
+    // Add more selectors/theme classes as needed.
+    setTheme(".ui-mobile-viewport", "ui-overlay", theme);
+    setTheme("[data-role='page']", "ui-body", theme);
+    setTheme("[data-role='main']", "ui-body", theme);
+    setTheme("[data-role='header']", "ui-bar", theme);
+    setTheme("[data-role='listview'] > li", "ui-bar", theme);
+    setTheme(".ui-btn", "ui-btn-up", theme);
+    setTheme(".ui-btn", "ui-btn-hover", theme);
+};
+</script>
 </body>

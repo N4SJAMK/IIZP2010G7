@@ -10,11 +10,16 @@
 
 
 
-<div data-role="page" data-theme="b">
+<div data-role="page" >
 <body>
 
-<div data-role="header" data-theme="b" id="navtop">
+<div data-role="header" id="navtop">
     <h1>Admin Panel</h1>
+      <b><label data-inline="true" style="position: absolute;
+  top:0; right: .28em;" >Choose theme: 
+    <a href="#" data-role="button" data-inline="true" onclick="$.mobile.changeGlobalTheme('a');">Theme a</a>
+    <a href="#" data-role="button" data-inline="true" onclick="$.mobile.changeGlobalTheme('b');">Theme b</a>
+    <label></b>
 </div>
 
 <div id="container" data-role="main" class="ui-content">
@@ -49,5 +54,32 @@ if (isset($_POST['submit'])) {
 ?>
 </div>
 </div>
+<script>
+$.mobile.changeGlobalTheme = function(theme)
+{
+    // These themes will be cleared, add more
+    // swatch letters as needed.
+    var themes = " a b";
+
+    // Updates the theme for all elements that match the
+    // CSS selector with the specified theme class.
+    function setTheme(cssSelector, themeClass, theme)
+    {
+        $(cssSelector)
+            .removeClass(themes.split(" ").join(" " + themeClass + "-"))
+            .addClass(themeClass + "-" + theme)
+            .attr("data-theme", theme);
+    }
+
+    // Add more selectors/theme classes as needed.
+    setTheme(".ui-mobile-viewport", "ui-overlay", theme);
+    setTheme("[data-role='page']", "ui-body", theme);
+    setTheme("[data-role='main']", "ui-body", theme);
+    setTheme("[data-role='header']", "ui-bar", theme);
+    setTheme("[data-role='listview'] > li", "ui-bar", theme);
+    setTheme(".ui-btn", "ui-btn-up", theme);
+    setTheme(".ui-btn", "ui-btn-hover", theme);
+};
+</script>
 </body>
 

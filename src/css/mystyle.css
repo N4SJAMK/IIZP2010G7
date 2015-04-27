@@ -1,15 +1,8 @@
-body {
-    
-}
-h1 {
-    color: white ;
-    
-}
+
 p {
 	margin-left: 20px ;
 }
 #navtop {
-	background-color:#303030;
 	box-shadow: 2px 5px 10px #888888;
 	margin-bottom:-10px !important;
 	height:40px !important;
