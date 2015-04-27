@@ -9,8 +9,8 @@
   <a href="logout.php" class="ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-action">Logout</a>
  <b><label data-inline="true" style="position: absolute;
   top: .24em; right: .28em;" >Choose theme: 
-    <a href="#" data-role="button" data-inline="true" onclick="$.mobile.changeGlobalTheme('a');">Theme a</a>
-    <a href="#" data-role="button" data-inline="true" onclick="$.mobile.changeGlobalTheme('b');">Theme b</a>
+    <a href="#" data-role="button" data-inline="true"  data-theme="a" onclick="$.mobile.changeGlobalTheme('a');">Theme a</a>
+    <a href="#" data-role="button" data-inline="true" data-theme="b" onclick="$.mobile.changeGlobalTheme('b');">Theme b</a>
     <label></b>
 	 <div data-role="navbar" data-grid="c" data-theme="b">
     <ul>

@@ -17,8 +17,8 @@
     <h1>Admin Panel</h1>
       <b><label data-inline="true" style="position: absolute;
   top:0; right: .28em;" >Choose theme: 
-    <a href="#" data-role="button" data-inline="true" onclick="$.mobile.changeGlobalTheme('a');">Theme a</a>
-    <a href="#" data-role="button" data-inline="true" onclick="$.mobile.changeGlobalTheme('b');">Theme b</a>
+    <a href="#" data-role="button" data-inline="true" data-theme="a" onclick="$.mobile.changeGlobalTheme('a');">Theme a</a>
+    <a href="#" data-role="button" data-inline="true" data-theme="b" onclick="$.mobile.changeGlobalTheme('b');">Theme b</a>
     <label></b>
 </div>
 
